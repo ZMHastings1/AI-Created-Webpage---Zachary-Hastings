@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Preferences</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2eafc 60%, #b6ccfe 100%);
+            min-height: 100vh;
+        }
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,72,88,0.12);
+            background: linear-gradient(120deg, #ffffff 60%, #e3f0ff 100%);
+        }
+        .card-title {
+            font-weight: 700;
+            color: #3358e6;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #4f8cff 0%, #3358e6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-check {
+            background: linear-gradient(90deg, #e0f7fa 0%, #e3f0ff 100%);
+            border-radius: 0.5rem;
+            padding: 0.75rem 2rem 0.75rem 2.2rem; /* Increase left padding for more right shift */
+            margin-bottom: 1.1rem;
+            box-shadow: 0 1px 6px rgba(51,88,230,0.06);
+            display: flex;
+            align-items: center;
+            min-height: 3.2rem;
+            margin-left: 2.2rem; /* Move the whole box a bit more to the right */
+            margin-right: 0;
+        }
+        .form-check-input {
+            accent-color: #00bcd4; /* cyan */
+            width: 1.3em;
+            height: 1.3em;
+            margin-right: 0.75rem; /* Slightly reduce space between checkbox and label */
+            border: 2px solid #00bcd4;
+            background-color: #e0f7fa;
+            transition: border-color 0.2s, background 0.2s;
+            position: static; /* Remove relative positioning */
+            align-self: center; /* Center vertically with label */
+        }
+        .form-check-input:checked {
+            background-color: #00bcd4;
+            border-color: #00bcd4;
+        }
+        .form-check-label {
+            font-size: 1.08rem;
+            color: #00838f;
+            font-weight: 500;
+            transition: color 0.2s;
+            line-height: 1.3;
+            display: block;
+        }
+        .form-check-input:checked + .form-check-label {
+            color: #006064;
+            font-weight: 700;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #4f8cff 0%, #3358e6 100%);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.15);
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #3358e6 0%, #4f8cff 100%);
+        }
+        .btn-outline-secondary {
+            border-radius: 20px;
+            color: #3358e6;
+            border-color: #b6ccfe;
+            background: #f4f8ff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-outline-secondary:hover {
+            background: #3358e6;
+            color: #fff;
+            border-color: #3358e6;
+        }
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0,188,212,.15);
+        }
+        .highlight-box {
+            background: linear-gradient(90deg, #e3f0ff 0%, #f8fafc 100%);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #3358e6;
+        }
+        @media (max-width: 576px) {
+            .card {
+                padding: 0.5rem;
+            }
+            .form-check {
+                padding: 0.5rem 0.5rem;
+            }
+        }
+        body, .card, .form-check-label, .highlight-box, .btn, .text-muted {
+            font-size: 1.13rem;
+        }
+        .btn-save-prefs {
+            min-width: 180px;
+            font-size: 1.08rem;
+            padding: 0.5rem 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card shadow-sm p-4">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4 text-center">Email Preferences</h2>
+                        <div class="highlight-box mb-4 text-center">
+                            <span style="color:#3358e6; font-weight:600;">
+                                Manage how you want to stay informed. Select the types of emails you wish to receive.
+                            </span>
+                        </div>
+                        <form action="https://www.w3schools.com/action_page.php" method="post">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="criticalAlerts" name="criticalAlerts" checked>
+                                <label class="form-check-label" for="criticalAlerts">
+                                    Critical alerts and notifications about your tax return
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="specialOffers" name="specialOffers" checked>
+                                <label class="form-check-label" for="specialOffers">
+                                    Information about special offers for tax services
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="irsNotifications" name="irsNotifications" checked>
+                                <label class="form-check-label" for="irsNotifications">
+                                    Receive notifications of IRS changes and deadlines
+                                </label>
+                            </div>
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter" checked>
+                                <label class="form-check-label" for="newsletter">
+                                    Learn from monthly tax newsletter with tax news and tips
+                                </label>
+                            </div>
+                            <div class="d-flex justify-content-end mb-3 gap-2">
+                                <button type="button" class="btn btn-outline-secondary btn-sm" id="selectAllBtn">Select All</button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" id="deselectAllBtn">Deselect All</button>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm btn-save-prefs mt-2 mx-auto d-block">Save Preferences</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center mt-4 text-muted" style="font-size:0.95rem;">
+                    &copy; 2025 <span style="color:#3358e6;font-weight:600;">TaxPro Services</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle CDN (optional, for interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Select/Deselect All functionality
+        document.getElementById('selectAllBtn').onclick = function() {
+            document.querySelectorAll('.form-check-input').forEach(cb => cb.checked = true);
+        };
+        document.getElementById('deselectAllBtn').onclick = function() {
+            document.querySelectorAll('.form-check-input').forEach(cb => cb.checked = false);
+        };
+    </script>
+</body>
+</html>
